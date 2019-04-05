@@ -21,3 +21,7 @@ var darthMaul = {
   image: "assets/images/darth-maul.jpg",
   health: 180
 }
+
+characters = [obiWan, lukeSkywalker, darthSid, darthMaul];
+
+console.log(characters);
