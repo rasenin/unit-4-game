@@ -20,6 +20,12 @@ img {
   color: black;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .character h4 {
   margin: 2px 0;
 }
