@@ -16,13 +16,22 @@ img {
   padding: 2px 15px;
 }
 
+h1 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
 .character {
   float: left;
   text-align: center;
-  border: 2px solid green;
+  border: 2px solid #00ff00;
   font-size: 15px;
   background-color: #ffffff;
-  color: black;
+  color: #000000;
+}
+
+.character h4 {
+  margin: 3px 0;
 }
 
 .clearfix::after {
@@ -31,15 +40,6 @@ img {
   display: table;
 }
 
-.character h4 {
-  margin: 2px 0;
-}
-
-/* .choose-character {
-  margin: 20px 0px 0px 10px;
-} */
-
-h1 {
-  font-size: 25px;
-  margin-bottom: 5px;
+.your-character {
+  height: 152px;
 }
