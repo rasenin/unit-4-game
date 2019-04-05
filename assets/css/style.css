@@ -33,6 +33,7 @@ h1 {
   font-size: 15px;
   background-color: #ffffff;
   color: #000000;
+  cursor: pointer;
 }
 
 .character h4 {

@@ -26,7 +26,7 @@ var darthMaul = {
   health: 180
 }
 
-characters = [obiWan, lukeSkywalker, darthSid, darthMaul];
+var characters = [obiWan, lukeSkywalker, darthSid, darthMaul];
 
 for (var i = 0; i < characters.length; i++) { // for each character
 
@@ -42,3 +42,14 @@ for (var i = 0; i < characters.length; i++) { // for each character
 
   $(".choose-character").append(newDiv);
 }
+
+var plyrCharactChosen = false;
+var enemyChosen = false;
+
+$(".character").on("click", function() { // when a character is clicked
+  if (!plyrCharactChosen) {
+    plyrCharactChosen = true;
+    $(".choose-character").empty();
+    
+  }
+});
