@@ -1,15 +1,23 @@
 var obiWan = {
-  health: 120,
+  name: "Obi-Wan Kenobi",
+  image: "assets/images/obi-wan-kenobi.jpeg",
+  health: 120
 }
 
 var lukeSkywalker = {
-  health: 100,
+  name: "Luke Skywalker",
+  image: "assets/images/luke-skywalker.jpg",
+  health: 100
 }
 
 var darthSid = {
-  health: 150,
+  name: "Darth Sidious",
+  iamge: "assets/images/darth-sidious.png",
+  health: 150
 }
 
 var darthMaul = {
-  health: 180,
+  name: "Darth Maul",
+  image: "assets/images/darth-maul.jpg",
+  health: 180
 }
