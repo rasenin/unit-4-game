@@ -5,6 +5,11 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
+.container {
+  width: 97%;
+  margin: 20px auto 0;
+}
+
 img {
   height: 100px;
   width: 135px;
@@ -30,9 +35,9 @@ img {
   margin: 2px 0;
 }
 
-.choose-character {
+/* .choose-character {
   margin: 20px 0px 0px 10px;
-}
+} */
 
 h1 {
   font-size: 25px;
