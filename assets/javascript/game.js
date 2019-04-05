@@ -26,30 +26,39 @@ var darthMaul = {
   health: 180
 }
 
-var characters = [obiWan, lukeSkywalker, darthSid, darthMaul];
+var originalCharacters = [obiWan, lukeSkywalker, darthSid, darthMaul];
 
-for (var i = 0; i < characters.length; i++) { // for each character
+// keep track of the state of the game
+var plyrCharacterChosen = false;
+var enemyChosen = false;
+var needToClick = true;
 
-  // add their info to a div and append to the "choose-character" div
+function displayCharacters(divname, characters) {
+  for (var i = 0; i < characters.length; i++) {
+    var newDiv = $("<div>");
 
-  var newDiv = $("<div>");
+    newDiv.append("<h4>" + characters[i].name + "</h4>");
+    newDiv.append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
+    newDiv.append("<h4>" + characters[i].health + "</h4>");
 
-  newDiv.append("<h4>" + characters[i].name + "</h4>");
-  newDiv.append("<img src=" + characters[i].image + " />");
-  newDiv.append("<h4>" + characters[i].health + "</h4>");
-
-  newDiv.addClass("character");
-
-  $(".choose-character").append(newDiv);
+    if (needToClick) {
+      newDiv.addClass("character click-character");
+      newDiv.attr("pos", i); // potential bug: the array will differ at different stages of the game, might need 3rd arg
+    } else {
+      newDiv.addClass("character");
+    }
+    $(divname).append(newDiv);
+  }
 }
 
-var plyrCharactChosen = false;
-var enemyChosen = false;
+displayCharacters(".choose-character", originalCharacters);
 
-$(".character").on("click", function() { // when a character is clicked
-  if (!plyrCharactChosen) {
+$(".click-character").on("click", function() { // when a character is clicked
+  if (!plyrCharacterChosen) {
     plyrCharactChosen = true;
     $(".choose-character").empty();
-    
+
+    needToClick = false;
+    displayCharacters(".your-character", [originalCharacters[$(this).attr("pos")]]);
   }
 });
