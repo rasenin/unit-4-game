@@ -1,8 +1,16 @@
 img {
   height: 100px;
-  width: 130px;
+  width: 135px;
+  padding: 2px 10px;
 }
 
 .img {
   float: left;
+  text-align: center;
+  border: 2px solid green;
+  font-family: "Roboto Mono", monospace;
+}
+
+.choose-character {
+  margin: 20px 0px 0px 10px;
 }
