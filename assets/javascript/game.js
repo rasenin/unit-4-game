@@ -46,7 +46,12 @@ function displayCharacters(divname, characters) {
       newDiv.attr("pos", i); // potential bug: the array will differ at different stages of the game, might need 3rd arg
     } else {
       newDiv.addClass("character");
+    }    
+
+    if (plyrCharacterChosen && !enemyChosen) {
+      newDiv.addClass("enemy");
     }
+
     $(divname).append(newDiv);
   }
 }
@@ -55,10 +60,25 @@ displayCharacters(".choose-character", originalCharacters);
 
 $(".click-character").on("click", function() { // when a character is clicked
   if (!plyrCharacterChosen) {
-    plyrCharactChosen = true;
     $(".choose-character").empty();
 
+    var clickedCharacter = $(this).attr("pos");
+
     needToClick = false;
-    displayCharacters(".your-character", [originalCharacters[$(this).attr("pos")]]);
+    displayCharacters(".your-character", [originalCharacters[clickedCharacter]]);
+    needToClick = true;
+
+    // get the enemies: all the characters that are not the one who was clicked
+    var enemies = [];
+    $.each(originalCharacters, function(index, character) {
+      if (parseInt(index) !== parseInt(clickedCharacter)) {
+        // console.log(index);
+        enemies.push(character);
+      }
+
+    });
+    
+    plyrCharacterChosen = true;
+    displayCharacters(".enemies", enemies);
   }
 });

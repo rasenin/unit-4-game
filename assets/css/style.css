@@ -29,10 +29,13 @@ h1 {
 .character {
   float: left;
   text-align: center;
-  border: 2px solid #00ff00;
+  border: 2px solid #00be00;
   font-size: 15px;
   background-color: #ffffff;
   color: #000000;
+}
+
+.click-character {
   cursor: pointer;
 }
 
@@ -48,4 +51,12 @@ h1 {
 
 .your-character {
   height: 152px;
+}
+
+.enemy {
+  background-color: #ff0000;
+}
+
+.defend {
+  background-color: #000000;
 }
