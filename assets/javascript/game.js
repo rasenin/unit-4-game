@@ -15,7 +15,7 @@ var lukeSkywalker = {
 var darthSid = {
   name: "Darth Sidious",
   class: "darth-sidious",
-  iamge: "assets/images/darth-sidious.png",
+  image: "assets/images/darth-sidious.png",
   health: 150
 }
 
@@ -37,6 +37,8 @@ for (var i = 0; i < characters.length; i++) { // for each character
   newDiv.append("<h4>" + characters[i].name + "</h4>");
   newDiv.append("<img src=" + characters[i].image + " />");
   newDiv.append("<h4>" + characters[i].health + "</h4>");
+
+  newDiv.addClass("img");
 
   $(".choose-character").append(newDiv);
 }
