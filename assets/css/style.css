@@ -1,6 +1,8 @@
 body {
   background: url("../images/star-wars-background.jpg");
   background-size: cover;
+  color: white;
+  font-family: "Roboto Mono", monospace;
 }
 
 img {
@@ -9,19 +11,24 @@ img {
   padding: 2px 15px;
 }
 
-.img {
+.character {
   float: left;
   text-align: center;
   border: 2px solid green;
-  font-family: "Roboto Mono", monospace;
   font-size: 15px;
   background-color: #ffffff;
+  color: black;
 }
 
-.img h4 {
+.character h4 {
   margin: 2px 0;
 }
 
 .choose-character {
   margin: 20px 0px 0px 10px;
+}
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 5px;
 }

@@ -38,7 +38,7 @@ for (var i = 0; i < characters.length; i++) { // for each character
   newDiv.append("<img src=" + characters[i].image + " />");
   newDiv.append("<h4>" + characters[i].health + "</h4>");
 
-  newDiv.addClass("img");
+  newDiv.addClass("character");
 
   $(".choose-character").append(newDiv);
 }
