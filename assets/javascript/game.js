@@ -51,7 +51,6 @@ $(document).ready(function() {
   var displayChars = true;
   var displayCharacter = false;
   var displayEnemies = false;
-  var displayDefender = false; // delete?
   var selectNextEnemy = true;
   var gameOver = false;
 
@@ -92,7 +91,7 @@ $(document).ready(function() {
         );
         $("#slot-" + (i + 6)).append("<h4>" + characters[i].health + "</h4>");
         $("#slot-" + (i + 6)).attr("pos", i);
-      } else if (displayDefender) {
+      } else {
         // display the defender the user is fighting
         $("#slot-9").append("<h4>" + characters[i].name + "</h4>");
         $("#slot-9").append(
@@ -142,8 +141,7 @@ $(document).ready(function() {
       $(".enemies").show();
       displayCharacters(enemies);
       displayEnemies = false;
-      displayDefender = true;
-    } else if (displayDefender && selectNextEnemy) {
+    } else if (selectNextEnemy) {
       $(".defender").show();
       $("#slot-9").show();
       $("#slot-9").empty();
@@ -151,6 +149,8 @@ $(document).ready(function() {
       enemyCharacter = $(this).attr("pos");
       displayCharacters([enemies[enemyCharacter]]);
       currDefender = enemies.splice(enemyCharacter, 1);
+
+      $("#slot-" + (6 + enemies.length)).hide();
 
       if (enemies.length === 0) {
         $(".enemies").hide();
@@ -201,7 +201,7 @@ $(document).ready(function() {
           selectNextEnemy = true;
         }
         originalCharacters[userCharacter].currAttack +=
-        originalCharacters[userCharacter].baseAttack; // augment user attack power
+          originalCharacters[userCharacter].baseAttack; // augment user attack power
         return;
       }
 
@@ -214,7 +214,6 @@ $(document).ready(function() {
       displayCharacter = false;
 
       if (originalCharacters[userCharacter].health <= 0) {
-        // $(".game-log").empty();
         $(".game-log").append("<h4>You have been defeated! GAME OVER!!!</h4>");
         gameOver = true;
         $("#restart").show();
