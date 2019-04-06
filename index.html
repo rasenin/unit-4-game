@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPG Game</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RPG Game</title>
 
-  <!-- Reset CSS file -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <!-- The game's stylings -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Reset CSS file -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <!-- The game's stylings -->
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Google's Roboto Mono font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <!-- Google's Roboto Mono font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>Star Wars RPG!</header>
 
-</head>
-<body>
-
-  <header>Star Wars RPG!</header>
-
-  <div class="container">
-
-    <div class="choose-character clearfix">
+    <div class="container">
+      <div class="choose-character clearfix">
         <div id="slot-1" class="character click-character"></div>
         <div id="slot-2" class="character click-character"></div>
         <div id="slot-3" class="character click-character"></div>
         <div id="slot-4" class="character click-character"></div>
-    </div>
+      </div>
 
-    <h1>Your character</h1>
-    <div class="your-character clearfix">
+      <h1>Your Character</h1>
+      <div class="your-character clearfix">
         <div id="slot-5" class="character"></div>
-    </div>
+      </div>
 
-    <h1>Enemies Available to Attack</h1>  
-    <div class="enemies clearfix">
+      <h1>Enemies Available To Attack</h1>
+      <div class="enemies clearfix">
         <div id="slot-6" class="character enemy click-character"></div>
         <div id="slot-7" class="character enemy click-character"></div>
         <div id="slot-8" class="character enemy click-character"></div>
-    </div>
-  
-    <h1>Fight section</h1>
-    <div>
-      <button id="attack">Attack</button>
-    </div>
-  
-    <h1>Defender</h1>
-    <div class="defender">
-        <div id="slot-9" class="character defend"></div>
-    </div>
-  </div>
-  
+      </div>
 
-  <!-- jQuery CDN -->
-  <script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <!-- The game's javascript -->
-  <script src="assets/javascript/game.js"></script>
-</body>
+      <h1>Fight Section</h1>
+      <div>
+        <button id="attack">Attack</button>
+      </div>
+
+      <h1>Defender</h1>
+      <div class="defender clearfix">
+        <div id="slot-9" class="character defend"></div>
+      </div>
+
+      <div>
+        <div class="game-log"></div>
+      </div>
+
+      <div>
+        <button id="restart">Restart</button>
+      </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- The game's javascript -->
+    <script src="assets/javascript/game.js"></script>
+  </body>
 </html>

@@ -3,10 +3,11 @@ body {
   background-size: cover;
   color: white;
   font-family: "Roboto Mono", monospace;
+  /* line-height: 1.2; */
 }
 
 header {
-  font-size: 35px;
+  font-size: 30px;
   margin-left: 50%;
 }
 
@@ -22,8 +23,12 @@ img {
 }
 
 h1 {
-  font-size: 25px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin: 8px 0;
+}
+
+h1:first-of-type {
+  margin-top: 0;
 }
 
 .character {
@@ -49,10 +54,6 @@ h1 {
   display: table;
 }
 
-.your-character {
-  height: 152px;
-}
-
 .enemy {
   background-color: #ff0000;
 }
@@ -60,4 +61,12 @@ h1 {
 .defend {
   background-color: #000000;
   color: #ffffff;
+}
+
+.game-log {
+  margin-top: 5px;
+}
+
+#restart {
+  margin: 10px 0;
 }
