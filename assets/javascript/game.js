@@ -31,61 +31,76 @@ $(document).ready(function() {
   var enemies = [];
   
   // keep track of the state of the game
-  var plyrCharacterChosen = false;
-  var enemyChosen = false;
-  var needToClick = true;
+  var displayChars = true;
+  var displayCharacter = false;
+  var displayEnemies = false;
+  var displayDefender = false;
+  var selectNextEnemy = true;
   
-  function displayCharacters(divname, characters) {
+  function displayCharacters(characters) {
     for (var i = 0; i < characters.length; i++) {
-      var newDiv = $("<div>");
-  
-      newDiv.append("<h4>" + characters[i].name + "</h4>");
-      newDiv.append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
-      newDiv.append("<h4>" + characters[i].health + "</h4>");
-  
-      if (needToClick) {
-        if (!plyrCharacterChosen) {
-          newDiv.addClass("character character-user");
-        } else {
-          newDiv.addClass("character character-enemy");
-        }        
-        newDiv.attr("pos", i); // potential bug: the array will differ at different stages of the game, might need 3rd arg
-      } else {
-        newDiv.addClass("character");
+      if (displayChars) { // display characters for user to choose
+        $("#slot-" + (i + 1)).append("<h4>" + characters[i].name + "</h4>");
+        $("#slot-" + (i + 1)).append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
+        $("#slot-" + (i + 1)).append("<h4>" + characters[i].health + "</h4>");
+        $("#slot-" + (i + 1)).attr("pos", i); 
+      } else if (displayCharacter) { // display character user chose
+        $("#slot-5").append("<h4>" + characters[i].name + "</h4>");
+        $("#slot-5").append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
+        $("#slot-5").append("<h4>" + characters[i].health + "</h4>");
+      } else if (displayEnemies) { // display enemies available to attack
+        $("#slot-" + (i + 6)).append("<h4>" + characters[i].name + "</h4>");
+        $("#slot-" + (i + 6)).append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
+        $("#slot-" + (i + 6)).append("<h4>" + characters[i].health + "</h4>");
+        $("#slot-" + (i + 6)).attr("pos", i);
+      } else if (displayDefender) { // display the defender the user is fighting
+        $("#slot-9").append("<h4>" + characters[i].name + "</h4>");
+        $("#slot-9").append("<img src=" + characters[i].image + " alt=\"" + characters[i].name + "\" />");
+        $("#slot-9").append("<h4>" + characters[i].health + "</h4>");
       }
-
-      $(divname).append(newDiv);
     }
   }
   
-  displayCharacters(".choose-character", originalCharacters);
+  displayCharacters(originalCharacters);
+  displayChars = false;
+  displayCharacter = true;
   
-  $(".character-user").on("click", function() { // when user selects character
-  
-    console.log("You clicked a character!");
-  
-    var clickedCharacter = $(this).attr("pos");
-  
-    needToClick = false;
-    displayCharacters(".your-character", [originalCharacters[clickedCharacter]]);
-    
-  
-    // get the enemies: all the characters that are not the one who was clicked
-    $.each(originalCharacters, function(index, character) {
-      if (parseInt(index) !== parseInt(clickedCharacter)) {
-        // console.log(index);
-        enemies.push(character);
-      }  
-    });
-  
-    plyrCharacterChosen = true;
-    needToClick = true;
-    displayCharacters(".enemies", enemies);
-    $(".choose-character").empty();
-  
-  });
-  
-  $(".character-enemy").on("click", function() {
-    console.log("You clicked an enemy!");  
+  $(".click-character").on("click", function() { // when user clicks on a character
+
+    if(displayCharacter) { // if about to display the character that the user chose
+      $(".choose-character").empty();
+      var clickedCharacter = $(this).attr("pos");
+      displayCharacters([originalCharacters[clickedCharacter]]);
+      displayCharacter = false;
+      displayEnemies = true;
+
+      // get the enemies into an array: all the characters that are not the one who was clicked
+      $.each(originalCharacters, function(index, character) {
+        if (parseInt(index) !== parseInt(clickedCharacter)) {
+          enemies.push(character);
+        }
+      });
+
+      displayCharacters(enemies);
+      displayEnemies = false;
+      displayDefender = true;
+
+    } else if (displayDefender && selectNextEnemy) {
+      var clickedCharacter = $(this).attr("pos");
+      displayCharacters([enemies[clickedCharacter]]);
+      enemies.splice(clickedCharacter, 1);
+
+      // first clear the divs in enemies section
+      for (var i = 0; i < 3; i++) {
+        $("#slot-" + (i + 6)).empty();
+      }
+
+      // redisplay remaining enemies
+
+      displayEnemies = true;
+      displayCharacters(enemies);
+      displayEnemies = false;
+      selectNextEnemy = false;
+    }
   });
 });

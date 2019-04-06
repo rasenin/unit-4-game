@@ -35,7 +35,7 @@ h1 {
   color: #000000;
 }
 
-.character-user, .character-enemy {
+.click-character {
   cursor: pointer;
 }
 
@@ -53,10 +53,11 @@ h1 {
   height: 152px;
 }
 
-.character-enemy {
+.enemy {
   background-color: #ff0000;
 }
 
 .defend {
   background-color: #000000;
+  color: #ffffff;
 }
