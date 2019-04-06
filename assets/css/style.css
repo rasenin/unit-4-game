@@ -3,7 +3,6 @@ body {
   background-size: cover;
   color: white;
   font-family: "Roboto Mono", monospace;
-  /* line-height: 1.2; */
 }
 
 header {
@@ -68,5 +67,5 @@ h1:first-of-type {
 }
 
 #restart {
-  margin: 10px 0;
+  margin-top: 10px;
 }
