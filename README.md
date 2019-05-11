@@ -1,6 +1,6 @@
-# unit-4-game
+# Star-Wars-RPG
 
-1. Here's how the app works:
+This is a little jQuery game I wrote. This is how it's played:
 
    - When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
 
