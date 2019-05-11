@@ -14,10 +14,10 @@ This is a little jQuery game I wrote. This is how it's played:
      - Whenever the player clicks `attack`, their character damages the defender. The opponent will lose `HP` (health points). These points are displayed at the bottom of the defender's picture.
      - The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their `HP`. These points are shown at the bottom of the player character's picture.
 
-2. The player will keep hitting the attack button in an effort to defeat their opponent.
+The player will keep hitting the attack button in an effort to defeat their opponent.
 
    - When the defender's `HP` is reduced to zero or below, the player character can now choose a new opponent.
 
-3. The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
+The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
 
-The game can be played at [this link](https://rasenin.github.io/unit-4-game/).
+The game can be played at [this link](https://romansenin.github.io/Star-Wars-RPG/).
