@@ -20,4 +20,4 @@ The player will keep hitting the attack button in an effort to defeat their oppo
 
 The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
 
-The game can be played at [this link](https://romansenin.github.io/Star-Wars-RPG/).
+The game can be played at [here](https://romansenin.github.io/Star-Wars-RPG/).
